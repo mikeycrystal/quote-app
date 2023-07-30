@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import Link from "next/link";
-import Image from "next/image";
 
 import Lottie from "react-lottie-player";
 

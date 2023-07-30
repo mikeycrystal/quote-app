@@ -61,7 +61,6 @@ function isGraphQLResultForquotesQueryName(
 }
 
 export default function Home() {
-  const [numberOfQuotes, setNumberOfQuotes] = useState<Number | null>(0);
   const [openGenerator, setOpenGenerator] = useState(false);
   const [processingQuote, setProcessingQuote] = useState(false);
   const [quoteReceived, setQuoteReceived] = useState<String | null>(null);
@@ -90,7 +89,6 @@ export default function Home() {
 
       const receivedNumberOfQuotes =
         response.data.quotesQueryName.items[0].quotesGenerated;
-      setNumberOfQuotes(receivedNumberOfQuotes);
     } catch (error) {
       console.log("error getting quote data", error);
     }
@@ -136,11 +134,6 @@ export default function Home() {
 
       // Fetch if any new quotes were generated from counter
       updateQuoteInfo();
-
-      // setProcessingQuote(false);
-      // setTimeout(() => {
-      //   setProcessingQuote(false);
-      // }, 3000);
     } catch (error) {
       console.log("error generating quote:", error);
       setProcessingQuote(false);
@@ -170,13 +163,8 @@ export default function Home() {
         {/* Quote Generator */}
         <QuoteGeneratorCon>
           <QuoteGeneratorInnerCon>
-            <QuoteGeneratorTitle>
-              Daily Inspiration Generator
-            </QuoteGeneratorTitle>
-
             <QuoteGeneratorSubTitle>
-              Looking for a splash of inspiration? Generate a quote card with a
-              random inspirational quote provided by{" "}
+              Generate a completely random quote provided by{" "}
               <FooterLink
                 href="https://zenquotes.io/"
                 target="_blank"
@@ -201,15 +189,15 @@ export default function Home() {
         {/* Footer */}
         <FooterCon>
           <>
-            Quotes Generated: {numberOfQuotes}
             <br />
+            Developed by{" "}
             <FooterLink
-              href="https://youtube.com/brianhhough"
+              href="https://github.com/mikeycrystal"
               target="_blank"
               rel="noopener noreferrer"
             >
               {" "}
-              @BrianHHough{" "}
+              MichaelCrystal{" "}
             </FooterLink>
           </>
         </FooterCon>
